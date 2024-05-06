@@ -44,6 +44,20 @@ const TodoList = () => {
         }
     }
 
+    const guardarTarea = async () => {
+        try {
+            const response = await fetch("https://playground.4geeks.com/todo/users/aratarjat", {
+                method: "PUT",
+                body: JSON.stringify(toDo),
+                headers: { "Content-Type": "application/json" }
+            })
+            const data = await response.json()
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         crearUsuario()
         obtnenerTareas()
